@@ -4,6 +4,8 @@ import Header from "./components/Header/index";
 import LateralBar from "./components/LateralBar";
 import Banner from "./components/Banner";
 import Gallery from "./components/Gallery";
+import photos from "./photos.json";
+import {useState} from "react";
 
 const GradientBackground = styled.div({
   background: "linear-gradient(174.61deg, #041833 4.16%, #04244F 48%, #154580 96.76%)",
@@ -29,7 +31,7 @@ const GalleryContent = styled.section({
 });
 
 function App() {
-
+  const [galleryPhotos, setGalleryPhotos] = useState(photos);
   return (
     <GradientBackground>
       <GlobalStyles/>
@@ -42,7 +44,7 @@ function App() {
               bgImage="/images/banner.png"
               text="A galeria mais completa de fotos no espaço!"
             />
-            <Gallery/>
+            <Gallery photos={galleryPhotos}/>
           </GalleryContent>
         </MainContainer>
       </AppContainer>
