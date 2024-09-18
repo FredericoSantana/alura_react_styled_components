@@ -13,6 +13,13 @@ const FluidSection = styled.section({
   flexGrow: 1
 })
 
+const ImagesContainer = styled.section({
+  display: "flex",
+  justifyContent: "space-between",
+  flexWrap: "wrap",
+  gap: "24px",
+})
+
 const Gallery = ({photos = []}) => {
   return (
     <>
@@ -20,7 +27,13 @@ const Gallery = ({photos = []}) => {
       <GalleryContainer>
         <FluidSection>
           <Title>Navegue pela galeria</Title>
-          {photos.map(photo => <Image key={photo.id} photo={photo}/>)}
+          <ImagesContainer>
+            {photos.map(photo => <Image
+                key={photo.id}
+                photo={photo}
+              />
+            )}
+          </ImagesContainer>
         </FluidSection>
         <Popular/>
       </GalleryContainer>
