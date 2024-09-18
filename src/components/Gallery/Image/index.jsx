@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import IconButton from "../../IconButton";
 
 const Figure = styled.figure(props => ({
   width: props.expanded ? "90%" : "460px",
@@ -36,15 +37,26 @@ const Footer = styled.footer({
 })
 
 const Image = ({photo, expanded = false}) => {
+
+  // const favoriteIcon = foto.favorite ? '/icons/favorito-ativo.png' : '/icons/favorito.png'
+  let favoriteIcon = '/icons/favorito.png';
+  if (photo.favorite) {
+    favoriteIcon = '/icons/favorito-ativo.png'
+  }
+
   return (
-    <Figure expanded={expanded}>
+    <Figure expanded={expanded} id={`foto-${photo.id}`}>
       <img src={photo.path} alt={photo.title}/>
       <figcaption>
         <h3>{photo.title}</h3>
         <Footer>
           <h4>{photo.source}</h4>
-          <button>favorito</button>
-          <button>maximizar</button>
+          <IconButton>
+            <img src={favoriteIcon} alt="Icone de favorito"/>
+          </IconButton>
+          <IconButton>
+            <img src="/icons/expandir.png" alt="Icone de expandir" />
+          </IconButton>
         </Footer>
       </figcaption>
     </Figure>
