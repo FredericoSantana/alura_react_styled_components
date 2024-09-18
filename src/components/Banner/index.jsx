@@ -13,19 +13,6 @@ const StyledFigure = styled.figure(props => ({
   backgroundSize: "cover",
 }));
 
-// const StyledFigure = styled.figure`
-//     background-image: ${props => `url(${props.$bgImage})`};
-//     flex-grow: 1;
-//     background-repeat: no-repeat;
-//     display: flex;
-//     align-items: center;
-//     min-height: 328px;
-//     margin: 0;
-//     border-radius: 20px;
-//     max-width: 100%;
-//     background-size: cover;
-// `
-
 const StyledTitle = styled.h1({
   fontWeight: 400,
   fontSize: "40px",
