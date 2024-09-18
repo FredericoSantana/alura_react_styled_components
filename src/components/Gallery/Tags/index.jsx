@@ -1,6 +1,13 @@
 import tags from "./tags.json";
 import styled from "styled-components";
 
+const TagContainer = styled.section({
+  display: "flex",
+  alignItems: "center",
+  gap: "64px",
+  marginTop: "56px"
+});
+
 const TagTitle = styled.h3({
   color: "#D9D9D9",
   fontSize: "24px",
@@ -22,12 +29,20 @@ const Tag = styled.button({
   }
 });
 
+const Div = styled.div({
+  display: "flex",
+  gap: "24px",
+  justifyContent: "end"
+})
+
 const Tags = () => {
   return (
-    <>
+    <TagContainer>
       <TagTitle>Busque por tags:</TagTitle>
-      {tags.map(tag => <Tag key={tag.id}>{tag.titulo}</Tag>)}
-    </>
+      <Div>
+        {tags.map(tag => <Tag key={tag.id}>{tag.titulo}</Tag>)}
+      </Div>
+    </TagContainer>
   );
 };
 
