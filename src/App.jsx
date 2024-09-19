@@ -33,7 +33,23 @@ const GalleryContent = styled.section({
 
 function App() {
   const [galleryPhotos, setGalleryPhotos] = useState(photos);
-  const [selectedPhoto, setSelectedPhoto] = useState(null)
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
+
+  const onChangeFavourite = (photo) => {
+    if (photo.id === selectedPhoto?.id) {
+      setSelectedPhoto({
+        ...selectedPhoto,
+        favourite: !selectedPhoto.favourite
+      })
+    }
+    setGalleryPhotos(galleryPhotos.map(galleryPhoto => {
+      return {
+        ...galleryPhoto,
+        favourite: galleryPhoto.id === photo.id ? !photo.favourite : galleryPhoto.favourite
+      }
+    }));
+  }
+
   return (
     <GradientBackground>
       <GlobalStyles/>
@@ -48,6 +64,7 @@ function App() {
             />
             <Gallery
               onSelectedPhoto={photo => setSelectedPhoto(photo)}
+              onChangeFavourite={onChangeFavourite}
               photos={galleryPhotos}
             />
           </GalleryContent>
@@ -56,6 +73,7 @@ function App() {
       <ModalZoom
         photo={selectedPhoto}
         aoFechar={() => setSelectedPhoto(null)}
+        onChangeFavourite={onChangeFavourite}
       />
     </GradientBackground>
   )

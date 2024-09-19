@@ -36,12 +36,12 @@ const Footer = styled.footer({
   alignItems: "center",
 })
 
-const Image = ({photo, expanded = false, onActivatedZoom}) => {
+const Image = ({photo, expanded = false, onActivatedZoom, onChangeFavourite}) => {
 
-  // const favoriteIcon = foto.favorite ? '/icons/favorito-ativo.png' : '/icons/favorito.png'
-  let favoriteIcon = '/icons/favorito.png';
-  if (photo.favorite) {
-    favoriteIcon = '/icons/favorito-ativo.png'
+  // const favouriteIcon = photo.favourite ? '/icons/favorito-ativo.png' : '/icons/favorito.png'
+  let favouriteIcon = '/icons/favorito.png';
+  if (photo.favourite) {
+    favouriteIcon = '/icons/favorito-ativo.png'
   }
 
   return (
@@ -51,8 +51,8 @@ const Image = ({photo, expanded = false, onActivatedZoom}) => {
         <h3>{photo.title}</h3>
         <Footer>
           <h4>{photo.source}</h4>
-          <IconButton>
-            <img src={favoriteIcon} alt="Icone de favorito"/>
+          <IconButton onClick={() => onChangeFavourite(photo)}>
+            <img src={favouriteIcon} alt="Icone de favorito"/>
           </IconButton>
           {!expanded && <IconButton aria-hidden={expanded} onClick={() => onActivatedZoom(photo)}>
             <img src="/icons/expandir.png" alt="Icone de expandir" />
