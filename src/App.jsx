@@ -53,7 +53,10 @@ function App() {
           </GalleryContent>
         </MainContainer>
       </AppContainer>
-      <ModalZoom photo={selectedPhoto}/>
+      <ModalZoom
+        photo={selectedPhoto}
+        aoFechar={() => setSelectedPhoto(null)}
+      />
     </GradientBackground>
   )
 }
