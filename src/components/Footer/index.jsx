@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import facebook from '/public/images/sociais/facebook.svg'
-import instagram from '/public/images/sociais/instagram.svg'
-import twitter from '/public/images/sociais/twitter.svg'
+import facebook from '/images/sociais/facebook.svg'
+import instagram from '/images/sociais/instagram.svg'
+import twitter from '/images/sociais/twitter.svg'
 
 const StyledFooter = styled.footer({
   display: "flex",

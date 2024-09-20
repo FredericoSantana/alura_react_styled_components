@@ -15,7 +15,7 @@ const StyledListItem = styled.li(props => ({
 
 const NavItem = ({children, activeIcon, inactiveIcon, active = false}) => {
   return (
-    <StyledListItem active={active}>
+    <StyledListItem $active={active}>
       <img src={active ? activeIcon : inactiveIcon} alt=""/>
       {children}
     </StyledListItem>

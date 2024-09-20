@@ -15,7 +15,7 @@ const LateralBar = () => {
           <NavItem
             activeIcon="/icons/home-ativo.png"
             inactiveIcon="/icons/home-inativo.png"
-            active
+            active={true}
           >
             Home
           </NavItem>

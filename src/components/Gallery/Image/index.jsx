@@ -45,8 +45,8 @@ const Image = ({photo, expanded = false, onActivatedZoom, onChangeFavourite}) =>
   }
 
   return (
-    <Figure expanded={expanded} id={`foto-${photo.id}`}>
-      <img src={photo.path} alt={photo.title}/>
+    <Figure $expanded={expanded} id={`foto-${photo.id}`}>
+      <img src={photo.path} alt={photo.alt}/>
       <figcaption>
         <h3>{photo.title}</h3>
         <Footer>

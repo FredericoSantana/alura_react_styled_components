@@ -29,7 +29,7 @@ const Button = styled.button({
 const Popular = () => {
   return (
     <section>
-      <Title alignment="center">Populares</Title>
+      <Title $alignment="center">Populares</Title>
       <PhotosColumn>
         {photos.map(photo => <Image key={photo.id} src={photo.path} alt={photo.alt}/>)}
       </PhotosColumn>
