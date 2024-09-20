@@ -31,11 +31,11 @@ const MagnifierIcon = styled.img({
 
 import React from 'react';
 
-const InputText = ({setFiltro}) => {
+const InputText = ({setFilter}) => {
   return (
     <StyledContainer>
       <StyledInputText
-        onChange={(evento) => { setFiltro(evento.target.value) }}
+        onChange={(event) => { setFilter(event.target.value) }}
         type="text"
         placeholder="O que você procura?"/>
       <MagnifierIcon src={search} alt="ícone de lupa"/>

@@ -14,7 +14,7 @@ const Header = ({filter, setFilter}) => {
   return (
     <StyledHeader>
       <img src="/images/logo.png" alt="logo"/>
-      <InputText />
+      <InputText setFilter={setFilter} />
     </StyledHeader>
   )
 }
