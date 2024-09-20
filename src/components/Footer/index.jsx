@@ -14,7 +14,7 @@ const StyledFooter = styled.footer({
   boxSizing: "border-box",
 });
 
-const containerIcon = styled.ul({
+const ContainerIcon = styled.ul({
   margin: "0",
   padding: "0",
   listStyle: "none",
@@ -24,7 +24,7 @@ const containerIcon = styled.ul({
   }
 });
 
-const footerText = styled.p({
+const FooterText = styled.p({
   fontSize: "16px",
   color: "white",
   margin: 0,
@@ -33,7 +33,7 @@ const footerText = styled.p({
 function Footer() {
   return (
     <StyledFooter>
-      <containerIcon>
+      <ContainerIcon>
         <li>
           <a href="#">
             <img src={facebook} alt="Facebook"/>
@@ -49,8 +49,8 @@ function Footer() {
             <img src={instagram} alt="Instagram"/>
           </a>
         </li>
-      </containerIcon>
-      <footerText>Desenvolvido por Alura.</footerText>
+      </ContainerIcon>
+      <FooterText>Desenvolvido por Alura.</FooterText>
     </StyledFooter>
   );
 }
