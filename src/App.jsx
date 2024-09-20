@@ -5,7 +5,7 @@ import LateralBar from "./components/LateralBar";
 import Banner from "./components/Banner";
 import Gallery from "./components/Gallery";
 import photos from "./photos.json";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import ModalZoom from "./components/ModalZoom";
 import Footer from "./components/Footer";
 
@@ -35,6 +35,17 @@ const GalleryContent = styled.section({
 function App() {
   const [galleryPhotos, setGalleryPhotos] = useState(photos);
   const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [filter, setFilter] = useState('')
+  const [tag, setTag] = useState(0)
+
+  useEffect(() => {
+    const filteredPhotos = photos.filter(photo => {
+      const filterByTag = !tag || photo.tagId === tag;
+      const filterByTitulo = !filter || photo.title.toLowerCase().includes(filter.toLowerCase())
+      return filterByTag && filterByTitulo
+    })
+    setGalleryPhotos(filteredPhotos);
+  }, [filter, tag]);
 
   const onChangeFavourite = (photo) => {
     if (photo.id === selectedPhoto?.id) {
@@ -55,7 +66,7 @@ function App() {
     <GradientBackground>
       <GlobalStyles/>
       <AppContainer>
-        <Header/>
+        <Header filter={filter} setFilter={setFilter}/>
         <MainContainer>
           <LateralBar/>
           <GalleryContent>
@@ -67,6 +78,7 @@ function App() {
               onSelectedPhoto={photo => setSelectedPhoto(photo)}
               onChangeFavourite={onChangeFavourite}
               photos={galleryPhotos}
+              setTag={setTag}
             />
           </GalleryContent>
         </MainContainer>

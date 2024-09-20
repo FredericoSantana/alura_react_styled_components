@@ -35,12 +35,12 @@ const Div = styled.div({
   justifyContent: "end"
 })
 
-const Tags = () => {
+const Tags = ({setTag}) => {
   return (
     <TagContainer>
       <TagTitle>Busque por tags:</TagTitle>
       <Div>
-        {tags.map(tag => <Tag key={tag.id}>{tag.titulo}</Tag>)}
+        {tags.map(tag => <Tag key={tag.id} onClick={() => setTag(tag.tag)}>{tag.title}</Tag>)}
       </Div>
     </TagContainer>
   );
